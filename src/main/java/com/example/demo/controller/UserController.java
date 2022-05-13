@@ -1,17 +1,18 @@
 package com.example.demo.controller;
 
-import com.example.demo.Entity.UserEntity;
-import com.example.demo.Repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import com.example.demo.entity.UserEntity;
+import com.example.demo.repository.UserRepository;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping(path="/user")
 public class UserController {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @PostMapping(path="/add")
     public @ResponseBody String addNewUser (@RequestParam String name, @RequestParam String email) {

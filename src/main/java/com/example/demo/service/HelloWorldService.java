@@ -1,11 +1,11 @@
 package com.example.demo.service;
 
-public class GreetingService {
+public class HelloWorldService {
 
     private final long id;
     private final String content;
 
-    public GreetingService(long id, String content) {
+    public HelloWorldService(long id, String content) {
         this.id = id;
         this.content = content;
     }

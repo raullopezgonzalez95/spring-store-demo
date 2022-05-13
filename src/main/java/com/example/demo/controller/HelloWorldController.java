@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.service.GreetingService;
+import com.example.demo.service.HelloWorldService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,8 +18,8 @@ public class HelloWorldController {
     }
 
     @GetMapping("/greeting")
-    public GreetingService greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return new GreetingService(counter.incrementAndGet(), String.format(template, name));
+    public HelloWorldService greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
+        return new HelloWorldService(counter.incrementAndGet(), String.format(template, name));
     }
 
 }
