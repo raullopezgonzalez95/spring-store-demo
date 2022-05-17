@@ -3,6 +3,9 @@ package com.example.demo.controller;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.repository.UserRepository;
 import org.springframework.web.bind.annotation.*;
+import org.webjars.NotFoundException;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path="/user")
@@ -26,6 +29,13 @@ public class UserController {
     @GetMapping(path="/all")
     public @ResponseBody Iterable<UserEntity> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    @GetMapping
+    public @ResponseBody Optional<UserEntity> getUserById(@RequestParam Integer id) {
+        return Optional.ofNullable(userRepository.findById(id).orElseThrow(
+                () -> new NotFoundException("NotFoundException")
+        ));
     }
 
 }
