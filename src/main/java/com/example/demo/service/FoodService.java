@@ -12,6 +12,7 @@ public class FoodService {
     public FoodService(FoodRepository foodRepository) {
         this.foodRepository = foodRepository;
     }
+
     public Iterable<FoodEntity> findAll() {
         return foodRepository.findAll();
     }

@@ -1,15 +1,16 @@
-create table equivalencias (
-    id int primary key not null auto_increment,
-    categoria varchar(50) not null,
-    alimento varchar(50) not null,
-    porcion varchar(50) not null,
+create table db_example.equivalencias
+(
+    id         int primary key not null auto_increment,
+    categoria  varchar(50)     not null,
+    alimento   varchar(50)     not null,
+    porcion    varchar(50)     not null,
     comentario varchar(500) null
 );
 
-ALTER TABLE equivalencias
+ALTER TABLE db_example.equivalencias
     ADD COLUMN existencia BOOLEAN DEFAULT false NULL AFTER porcion;
 
-ALTER TABLE equivalencias
+ALTER TABLE db_example.equivalencias
     CONVERT TO CHARACTER SET utf8;
 
 insert into db_example.equivalencias(categoria, alimento, porcion, comentario)

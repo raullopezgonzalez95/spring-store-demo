@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path="/food")
+@RequestMapping(path = "/food")
 public class FoodController {
 
     private final FoodService foodService;

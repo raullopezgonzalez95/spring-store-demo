@@ -7,12 +7,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
+@RequestMapping(path="/hello")
 public class HelloWorldController {
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
-    @GetMapping("/hello")
+    @GetMapping
     public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
         return String.format(template, name);
     }
